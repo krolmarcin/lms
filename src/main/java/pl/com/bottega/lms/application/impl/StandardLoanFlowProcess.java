@@ -18,7 +18,7 @@ public class StandardLoanFlowProcess implements LoanFlowProcess {
 
 
     @Override
-    public void loanBook(BookIdGenerator bookIdGenerator, ClientId clientId) {
+    public void loanBook(BookId bookId, ClientId clientId) {
 
     }
 

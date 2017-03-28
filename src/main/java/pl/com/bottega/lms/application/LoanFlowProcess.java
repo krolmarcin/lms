@@ -6,7 +6,7 @@ import pl.com.bottega.lms.model.numbers.BookIdGenerator;
 
 public interface LoanFlowProcess {
 
-    void loanBook(BookIdGenerator bookIdGenerator, ClientId clientId);
+    void loanBook(BookId bookId, ClientId clientId);
 
     void returnBook(BookId bookId);
 
