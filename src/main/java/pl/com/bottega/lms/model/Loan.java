@@ -1,11 +1,22 @@
 package pl.com.bottega.lms.model;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
+@Entity
+@Table(name = "LOANS")
 public class Loan {
 
+    @Id
+    @GeneratedValue
     private Long id;
+
+    @Embedded
+    @AttributeOverride(name = "id", column = @Column(name = "bookId"))
     private BookId bookId;
+
+    @Embedded
+    @AttributeOverride(name = "id", column = @Column(name = "clientId"))
     private ClientId clientId;
     private LocalDateTime loanAt;
     private LocalDateTime returnAt;

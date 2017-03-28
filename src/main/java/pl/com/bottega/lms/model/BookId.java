@@ -1,6 +1,8 @@
 package pl.com.bottega.lms.model;
 
-public class BookId {
+import java.io.Serializable;
+
+public class BookId implements Serializable {
 
     private String bookId;
 

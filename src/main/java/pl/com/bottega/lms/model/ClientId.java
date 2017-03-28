@@ -6,7 +6,7 @@ public class ClientId implements Serializable {
 
     private Long id;
 
-    ClientId() {
+    public ClientId() {
     }
 
     public ClientId(Long id) {

@@ -3,8 +3,16 @@ package pl.com.bottega.lms.model;
 import pl.com.bottega.lms.model.commands.CreateClientCommand;
 import pl.com.bottega.lms.model.commands.UpdateClientCommand;
 
+import javax.persistence.EmbeddedId;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+import javax.persistence.Transient;
+
+@Entity
+@Table(name = "CLIENTS")
 public class Client {
 
+    @EmbeddedId
     private ClientId clientId;
     private String firstName;
     private String lastName;
