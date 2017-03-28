@@ -37,10 +37,6 @@ public class Book {
         this.author = cmd.getAuthor();
     }
 
-    public void remove(BookId bookId) {
-
-    }
-
     public BookId getBookId() {
         return bookId;
     }

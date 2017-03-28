@@ -33,11 +33,35 @@ public class Client {
     }
 
     public void update(UpdateClientCommand cmd) {
+        this.firstName = cmd.getFirstName();
+        this.lastName = cmd.getLastName();
+        this.email = cmd.getEmail();
+        this.mobilePhone = cmd.getMobilePhone();
 
     }
 
-    public void remove(ClientId clientId) {
+    public ClientId getClientId() {
+        return clientId;
+    }
 
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public String getMobilePhone() {
+        return mobilePhone;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public Address getAddress() {
+        return address;
     }
 
 }

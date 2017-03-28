@@ -2,8 +2,10 @@ package pl.com.bottega.lms.model;
 
 public interface ClientRepository {
 
+    Client get(ClientId clientId);
+
     void put(Client client);
 
-    Client get(ClientId clientId);
+    void remove(ClientId clientId);
 
 }

@@ -12,6 +12,11 @@ public class JPQLClientRepository implements ClientRepository {
     }
 
     @Override
+    public void remove(ClientId clientId) {
+
+    }
+
+    @Override
     public Client get(ClientId clientId) {
         return null;
     }
