@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.transaction.annotation.Transactional;
 import pl.com.bottega.lms.infrastructure.JPAClientRepository;
 import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
@@ -14,6 +15,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @SpringBootTest
+@Transactional
 public class JPAClientRepositoryTest {
 
     @Autowired
@@ -30,6 +32,15 @@ public class JPAClientRepositoryTest {
         //then
         assertThat(client).isNotNull();
         assertThat(client.getClientId()).isEqualTo(new ClientId(1L));
+    }
+
+    @Test
+    @Sql("/fixtures/clientById.sql")
+    public void shouldNotFindClientByIdWhenIdNotExists() {
+        ClientId id = new ClientId(100L);
+        Client client = clientRepository.findByClientId(id);
+
+        assertThat(client).isNull();
     }
 
 }
