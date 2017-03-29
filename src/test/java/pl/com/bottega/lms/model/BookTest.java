@@ -31,7 +31,7 @@ public class BookTest {
         Book book = given().newBook();
 
         //then
-        assertEquals(anyBookId(), book.getBookId());
+        assertEquals(anyBookId(), book.getId());
     }
 
     @Test

@@ -37,7 +37,6 @@ public class Client {
         this.lastName = cmd.getLastName();
         this.email = cmd.getEmail();
         this.mobilePhone = cmd.getMobilePhone();
-
     }
 
     public ClientId getClientId() {

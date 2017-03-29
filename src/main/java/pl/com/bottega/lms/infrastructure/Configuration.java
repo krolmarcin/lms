@@ -4,7 +4,6 @@ import org.springframework.context.annotation.Bean;
 import pl.com.bottega.lms.application.BookCatalog;
 import pl.com.bottega.lms.application.LoanFlowProcess;
 import pl.com.bottega.lms.application.impl.StandardLoanFlowProcess;
-import pl.com.bottega.lms.model.BookId;
 import pl.com.bottega.lms.model.BookRepository;
 import pl.com.bottega.lms.model.ClientId;
 import pl.com.bottega.lms.model.numbers.BookIdGenerator;
@@ -30,7 +29,7 @@ public class Configuration {
 
     @Bean
     public BookRepository bookRepository() {
-        return new JPQLBookRepository();
+        return new JPABookRepository();
     }
 
     @Bean

@@ -6,6 +6,6 @@ public interface BookRepository {
 
     Book get(BookId bookId);
 
-    void remove(BookId bookId);
+    void remove(Book book);
 
 }

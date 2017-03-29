@@ -4,17 +4,17 @@ import java.io.Serializable;
 
 public class BookId implements Serializable {
 
-    private String bookId;
+    private String id;
 
     BookId() {
     }
 
-    public BookId(String bookId) {
-        this.bookId = bookId;
+    public BookId(String id) {
+        this.id = id;
     }
 
-    public String getBookId() {
-        return bookId;
+    public String getId() {
+        return id;
     }
 
     @Override
@@ -24,12 +24,12 @@ public class BookId implements Serializable {
 
         BookId bookId1 = (BookId) o;
 
-        return bookId.equals(bookId1.bookId);
+        return id.equals(bookId1.id);
     }
 
     @Override
     public int hashCode() {
-        return bookId.hashCode();
+        return id.hashCode();
     }
 
 }
