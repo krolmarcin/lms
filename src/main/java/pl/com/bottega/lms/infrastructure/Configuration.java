@@ -6,6 +6,7 @@ import pl.com.bottega.lms.application.LoanFlowProcess;
 import pl.com.bottega.lms.application.impl.StandardLoanFlowProcess;
 import pl.com.bottega.lms.model.BookRepository;
 import pl.com.bottega.lms.model.ClientId;
+import pl.com.bottega.lms.model.ClientRepository;
 import pl.com.bottega.lms.model.numbers.BookIdGenerator;
 import pl.com.bottega.lms.model.numbers.ISBNIdGenerator;
 
@@ -33,7 +34,12 @@ public class Configuration {
     }
 
     @Bean
-    public ClientId clientId(){
+    public ClientRepository clientRepository() {
+        return new JPAClientRepository();
+    }
+
+    @Bean
+    ClientId clientId() {
         return new ClientId(1L);
     }
 
