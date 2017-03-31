@@ -6,6 +6,7 @@ import pl.com.bottega.lms.application.ClientCatalog;
 import pl.com.bottega.lms.application.LoanFlowProcess;
 import pl.com.bottega.lms.application.impl.StandardLoanFlowProcess;
 import pl.com.bottega.lms.model.BookRepository;
+import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
 import pl.com.bottega.lms.model.ClientRepository;
 import pl.com.bottega.lms.model.numbers.BookIdGenerator;
@@ -45,8 +46,8 @@ public class Configuration {
     }
 
     @Bean
-    ClientId clientId() {
-        return new ClientId(1L);
+    public ClientId clientId() {
+        return new ClientId();
     }
 
 }

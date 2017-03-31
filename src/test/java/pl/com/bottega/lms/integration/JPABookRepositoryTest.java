@@ -23,7 +23,7 @@ public class JPABookRepositoryTest {
     private JPABookRepository bookRepository;
 
     @Test
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldFindBookById() {
         //given - sql
         //when
@@ -35,7 +35,7 @@ public class JPABookRepositoryTest {
     }
 
     @Test(expected = BookNotFoundException.class)
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldNotFindBookByNonExistsId() {
         //given - sql
         //when
@@ -46,7 +46,7 @@ public class JPABookRepositoryTest {
     }
 
     @Test(expected = BookNotFoundException.class)
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldRemoveBookById() {
         BookId id = new BookId("1");
         Book book = bookRepository.get(id);

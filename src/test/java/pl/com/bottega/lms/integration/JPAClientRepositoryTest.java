@@ -22,7 +22,7 @@ public class JPAClientRepositoryTest {
     private JPAClientRepository clientRepository;
 
     @Test
-    @Sql("/fixtures/clientById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldFindClientById() {
         //given - sql
         //when
@@ -35,7 +35,7 @@ public class JPAClientRepositoryTest {
     }
 
     @Test
-    @Sql("/fixtures/clientById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldNotFindClientByIdWhenIdNotExists() {
         ClientId id = new ClientId(100L);
         Client client = clientRepository.findByClientId(id);

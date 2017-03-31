@@ -21,7 +21,7 @@ public class JPABookCatalogTest {
     private JPABookCatalog bookCatalog;
 
     @Test
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     @Transactional
     public void shouldFindBookByPhase(){
         BookQuery bookQuery = new BookQuery();
@@ -33,7 +33,7 @@ public class JPABookCatalogTest {
     }
 
     @Test
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     @Transactional
     public void shouldFindBookByTitle(){
         BookQuery bookQuery = new BookQuery();
@@ -45,7 +45,7 @@ public class JPABookCatalogTest {
     }
 
     @Test
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     @Transactional
     public void shouldFindBookByAuthor(){
         BookQuery bookQuery = new BookQuery();
@@ -57,7 +57,7 @@ public class JPABookCatalogTest {
     }
 
     @Test
-    @Sql("/fixtures/bookById.sql")
+    @Sql("/fixtures/clientsAndBooks.sql")
     @Transactional
     public void shouldFindBookByYear(){
         BookQuery bookQuery = new BookQuery();

@@ -15,10 +15,15 @@ public class Client {
 
     @EmbeddedId
     private ClientId clientId;
+
     private String firstName;
+
     private String lastName;
+
     private String mobilePhone;
+
     private String email;
+
     private Address address;
 
     Client() {

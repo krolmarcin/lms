@@ -1,0 +1,29 @@
+INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
+VALUES ('1', 'autor1', 'tytul1', 2017);
+
+INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
+VALUES ('2', 'autor2', 'tutul2', 2017);
+
+INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
+VALUES ('3', 'autor3', 'tutul3', 2017);
+
+INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
+VALUES ('4', 'autor4', 'tytul4', 2016);
+
+INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
+VALUES ('555', 'autor5', 'tytul5', 2017);
+
+INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
+VALUES ('1', 'janek', 'jankowski', '111222333', 'email1@email.com');
+
+INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
+VALUES ('2', 'maniek', 'mankowski', '222333444', 'email2@email.com');
+
+INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
+VALUES ('3', 'janek', 'kowlaski', '333444555', 'email3@email.com');
+
+INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
+VALUES ('4', 'maniek', 'kowalski', '777888999', 'email4@email.com');
+
+INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
+VALUES ('555', 'krzysztof', 'ibisz', '123444321', 'kszysztof.ibisz@email.com');

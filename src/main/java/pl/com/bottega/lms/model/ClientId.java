@@ -24,12 +24,12 @@ public class ClientId implements Serializable {
 
         ClientId clientId = (ClientId) o;
 
-        return id.equals(clientId.id);
+        return id != null ? id.equals(clientId.id) : clientId.id == null;
     }
 
     @Override
     public int hashCode() {
-        return id.hashCode();
+        return id != null ? id.hashCode() : 0;
     }
 
 }
