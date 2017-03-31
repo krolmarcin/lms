@@ -7,10 +7,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import pl.com.bottega.lms.application.BookQuery;
-import pl.com.bottega.lms.application.BookSearchResults;
-import pl.com.bottega.lms.application.ClientQuery;
-import pl.com.bottega.lms.application.ClientSearchResults;
+import pl.com.bottega.lms.application.*;
 import pl.com.bottega.lms.infrastructure.JPABookCatalog;
 import pl.com.bottega.lms.infrastructure.JPAClientCatalog;
 import pl.com.bottega.lms.model.Client;
@@ -62,7 +59,20 @@ public class JPAClientCatalogTest {
         assertThat(searchResults.getClients().size()).isEqualTo(1);
         assertThat(searchResults.getClients().get(0).getLastName()).isEqualTo("ibisz");
         assertThat(searchResults.getClients().get(0).getClientId().getId()).isEqualTo(555L);
+
     }
+
+    @Test
+    @Sql("/fixtures/clientsAndBooks.sql")
+    @Transactional
+    public void shouldGetClientById() {
+        ClientId clientId = new ClientId(555L);
+        ClientDto clientDto = clientCatalog.get(clientId);
+
+        assertThat(clientDto.getClientId().getId()).isEqualTo(555L);
+        assertThat(clientDto.getFirstName()).isEqualTo("krzysztof");
+    }
+
 
 
 }

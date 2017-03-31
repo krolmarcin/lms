@@ -6,7 +6,6 @@ import pl.com.bottega.lms.application.BookQuery;
 import pl.com.bottega.lms.application.BookSearchResults;
 import pl.com.bottega.lms.model.Book;
 import pl.com.bottega.lms.model.BookId;
-import pl.com.bottega.lms.model.BookNotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -83,15 +82,9 @@ public class JPABookCatalog implements BookCatalog {
 
     @Override
     public BookDto get(BookId bookId) {
-        Query query = entityManager.createQuery("FROM Books d LEFT JOIN FETCH d.loans WHERE d.id = :id");
-        query.setParameter("id", bookId);
-        if (query.getResultList().isEmpty())
-            throw new BookNotFoundException(bookId);
-        else {
-            Book book = (Book) query.getResultList().get(0);
-            BookDto bookDto = createBookDto(book);
-            return bookDto;
-        }
+        Book book = entityManager.find(Book.class, bookId);
+        BookDto bookDto = createBookDto(book);
+        return bookDto;
     }
 
     private BookDto createBookDto(Book book) {

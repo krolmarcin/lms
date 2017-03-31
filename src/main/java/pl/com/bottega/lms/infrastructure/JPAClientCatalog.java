@@ -6,6 +6,7 @@ import pl.com.bottega.lms.application.ClientQuery;
 import pl.com.bottega.lms.application.ClientSearchResults;
 import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
+import pl.com.bottega.lms.model.ClientNotFoundException;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -98,9 +99,15 @@ public class JPAClientCatalog implements ClientCatalog {
 
     @Override
     public ClientDto get(ClientId clientId) {
-        Client client = entityManager.find(Client.class, clientId);
-        ClientDto clientDto = createClientDto(client);
-        return clientDto;
+        Query query = entityManager.createQuery("FROM Client d WHERE d.id = :id");
+        query.setParameter("id", clientId);
+        if (query.getResultList().isEmpty())
+            throw new ClientNotFoundException(clientId);
+        else {
+            Client client = (Client) query.getResultList().get(0);
+            ClientDto clientDto = createClientDto(client);
+            return clientDto;
+        }
     }
 
     private ClientDto createClientDto(Client client) {
