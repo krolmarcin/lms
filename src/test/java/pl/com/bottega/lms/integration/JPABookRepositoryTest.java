@@ -36,7 +36,7 @@ public class JPABookRepositoryTest {
 
     @Test(expected = BookNotFoundException.class)
     @Sql("/fixtures/bookById.sql")
-    public void shouldNotFindBookById() {
+    public void shouldNotFindBookByNonExistsId() {
         //given - sql
         //when
         BookId id = new BookId("123");
