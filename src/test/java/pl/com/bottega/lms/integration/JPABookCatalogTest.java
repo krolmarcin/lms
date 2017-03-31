@@ -29,6 +29,7 @@ public class JPABookCatalogTest {
         BookSearchResults searchResults = bookCatalog.find(bookQuery);
 
         assertThat(searchResults.getBooks().size()).isEqualTo(5);
+        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("1");
     }
 
     @Test
@@ -40,6 +41,7 @@ public class JPABookCatalogTest {
         BookSearchResults searchResults = bookCatalog.find(bookQuery);
 
         assertThat(searchResults.getBooks().size()).isEqualTo(1);
+        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("1");
     }
 
     @Test
@@ -51,6 +53,7 @@ public class JPABookCatalogTest {
         BookSearchResults searchResults = bookCatalog.find(bookQuery);
 
         assertThat(searchResults.getBooks().size()).isEqualTo(1);
+        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("1");
     }
 
     @Test
@@ -58,10 +61,11 @@ public class JPABookCatalogTest {
     @Transactional
     public void shouldFindBookByYear(){
         BookQuery bookQuery = new BookQuery();
-        bookQuery.setYear("2017");
+        bookQuery.setYear("2016");
         BookSearchResults searchResults = bookCatalog.find(bookQuery);
 
-        assertThat(searchResults.getBooks().size()).isEqualTo(4);
+        assertThat(searchResults.getBooks().size()).isEqualTo(1);
+        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("111");
     }
 
 }
