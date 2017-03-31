@@ -2,6 +2,7 @@ package pl.com.bottega.lms.infrastructure;
 
 import org.springframework.context.annotation.Bean;
 import pl.com.bottega.lms.application.BookCatalog;
+import pl.com.bottega.lms.application.ClientCatalog;
 import pl.com.bottega.lms.application.LoanFlowProcess;
 import pl.com.bottega.lms.application.impl.StandardLoanFlowProcess;
 import pl.com.bottega.lms.model.BookRepository;
@@ -25,7 +26,12 @@ public class Configuration {
 
     @Bean
     public BookCatalog bookCatalog() {
-        return new JPQLBookCatalog();
+        return new JPABookCatalog();
+    }
+
+    @Bean
+    public ClientCatalog clientCatalog() {
+        return new JPAClientCatalog();
     }
 
     @Bean

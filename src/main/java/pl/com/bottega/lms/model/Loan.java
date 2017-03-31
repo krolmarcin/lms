@@ -30,8 +30,9 @@ public class Loan {
         this.loanAt = LocalDateTime.now();
     }
 
-    public void returnBook() {
-
+    public void returnBook(BookId bookId) {
+        this.bookId = bookId;
+        this.returnAt = LocalDateTime.now();
     }
 
 }
