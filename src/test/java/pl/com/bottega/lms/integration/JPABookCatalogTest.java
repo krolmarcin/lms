@@ -66,6 +66,9 @@ public class JPABookCatalogTest {
 
         assertThat(searchResults.getBooks().size()).isEqualTo(4);
         assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("1");
+        assertThat(searchResults.getBooks().get(1).getId()).isEqualTo("2");
+        assertThat(searchResults.getBooks().get(2).getId()).isEqualTo("3");
+        assertThat(searchResults.getBooks().get(3).getId()).isEqualTo("555");
     }
 
 }

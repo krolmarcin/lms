@@ -8,7 +8,7 @@ INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
 VALUES ('3', 'autor3', 'tutul3', 2017);
 
 INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
-VALUES ('4', 'autor4', 'tytul4', 2017);
+VALUES ('4', 'autor4', 'tytul4', 2016);
 
 INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR")
-VALUES ('111', 'autor5', 'tytul5', 2016);
+VALUES ('555', 'autor5', 'tytul5', 2017);
