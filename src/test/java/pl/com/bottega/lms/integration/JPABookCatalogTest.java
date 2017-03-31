@@ -61,11 +61,11 @@ public class JPABookCatalogTest {
     @Transactional
     public void shouldFindBookByYear(){
         BookQuery bookQuery = new BookQuery();
-        bookQuery.setYear("2016");
+        bookQuery.setYear("2017");
         BookSearchResults searchResults = bookCatalog.find(bookQuery);
 
-        assertThat(searchResults.getBooks().size()).isEqualTo(1);
-        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("111");
+        assertThat(searchResults.getBooks().size()).isEqualTo(4);
+        assertThat(searchResults.getBooks().get(0).getId()).isEqualTo("1");
     }
 
 }
