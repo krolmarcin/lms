@@ -5,6 +5,7 @@ public class UpdateBookCommand {
     private String title;
     private String year;
     private String author;
+    private String id;
 
     public String getTitle() {
         return title;
@@ -30,4 +31,11 @@ public class UpdateBookCommand {
         this.author = author;
     }
 
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
 }

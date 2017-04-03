@@ -15,7 +15,7 @@ public class Book {
     private String title;
     private String year;
     private String author;
-    private boolean isAvailable = true;
+    private boolean isAvailable;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookId")
@@ -29,6 +29,7 @@ public class Book {
         this.title = cmd.getTitle();
         this.year = cmd.getYear();
         this.author = cmd.getAuthor();
+        this.isAvailable = true;
     }
 
     public void update(UpdateBookCommand cmd) {
