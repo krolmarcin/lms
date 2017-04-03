@@ -12,6 +12,7 @@ import pl.com.bottega.lms.infrastructure.JPABookCatalog;
 import pl.com.bottega.lms.infrastructure.JPAClientCatalog;
 import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
+import pl.com.bottega.lms.model.ClientNotFoundException;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -73,6 +74,13 @@ public class JPAClientCatalogTest {
         assertThat(clientDto.getFirstName()).isEqualTo("krzysztof");
     }
 
+    @Test(expected = ClientNotFoundException.class)
+    @Sql("/fixtures/clientsAndBooks.sql")
+    @Transactional
+    public void shouldNotFindNonExistClientById() {
+        ClientId clientId = new ClientId(11L);
+        clientCatalog.get(clientId);
+    }
 
 
 }

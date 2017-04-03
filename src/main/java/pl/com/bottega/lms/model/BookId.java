@@ -6,7 +6,7 @@ public class BookId implements Serializable {
 
     private String id;
 
-    BookId() {
+    public BookId() {
     }
 
     public BookId(String id) {
@@ -22,9 +22,9 @@ public class BookId implements Serializable {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        BookId bookId1 = (BookId) o;
+        BookId bookId = (BookId) o;
 
-        return id.equals(bookId1.id);
+        return id.equals(bookId.id);
     }
 
     @Override

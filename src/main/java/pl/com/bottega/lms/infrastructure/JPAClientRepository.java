@@ -24,7 +24,7 @@ public class JPAClientRepository implements ClientRepository {
     }
 
     @Override
-    public Client findByClientId(ClientId clientId) {
+    public Client get(ClientId clientId) {
         CriteriaBuilder builder = entityManager.getCriteriaBuilder();
         CriteriaQuery<Client> criteriaQuery = builder.createQuery(Client.class);
         Root<Client> root = criteriaQuery.from(Client.class);

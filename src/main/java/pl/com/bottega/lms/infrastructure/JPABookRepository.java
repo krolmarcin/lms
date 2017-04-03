@@ -20,6 +20,8 @@ public class JPABookRepository implements BookRepository {
 
     @Override
     public void remove(Book book) {
+        if (!book.isAvailable())
+            throw new BookNotFoundException(String.format("Book %s is not available", book.getId().getId()));
         entityManager.remove(book);
     }
 

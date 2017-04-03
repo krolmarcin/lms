@@ -27,7 +27,7 @@ public class JPAClientRepositoryTest {
         //given - sql
         //when
         ClientId id = new ClientId(1L);
-        Client client = clientRepository.findByClientId(id);
+        Client client = clientRepository.get(id);
 
         //then
         assertThat(client).isNotNull();
@@ -38,7 +38,7 @@ public class JPAClientRepositoryTest {
     @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldNotFindClientByIdWhenIdNotExists() {
         ClientId id = new ClientId(100L);
-        Client client = clientRepository.findByClientId(id);
+        Client client = clientRepository.get(id);
 
         assertThat(client).isNull();
     }

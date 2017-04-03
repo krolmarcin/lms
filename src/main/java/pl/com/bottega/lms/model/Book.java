@@ -15,9 +15,10 @@ public class Book {
     private String title;
     private String year;
     private String author;
+    private boolean isAvailable = true;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "bookId")
     Loan loans;
 
     Book() {
@@ -50,6 +51,14 @@ public class Book {
 
     public String getAuthor() {
         return author;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean isAvailable) {
+        this.isAvailable = isAvailable;
     }
 
 }

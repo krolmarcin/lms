@@ -55,4 +55,23 @@ public class JPABookRepositoryTest {
         bookRepository.get(id);
     }
 
+    @Test//(expected = BookNotFoundException.class)
+    @Sql("/fixtures/clientsAndBooks.sql")
+    public void shouldNotRemoveBookById() {
+        BookId id = new BookId("1");
+        Book book = bookRepository.get(id);
+
+        bookRepository.remove(book);
+        bookRepository.remove(book);
+    }
+
+    @Test(expected = BookNotFoundException.class)
+    @Sql("/fixtures/clientsAndBooks.sql")
+    public void shouldNotRemoveBookWhenItIsNoTAvailable() {
+        BookId id = new BookId("1");
+        Book book = bookRepository.get(id);
+        book.setAvailable(false);
+
+        bookRepository.remove(book);
+    }
 }

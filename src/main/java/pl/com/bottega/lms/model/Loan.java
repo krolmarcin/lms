@@ -35,4 +35,24 @@ public class Loan {
         this.returnAt = LocalDateTime.now();
     }
 
+    public Long getId() {
+        return id;
+    }
+
+    public BookId getBookId() {
+        return bookId;
+    }
+
+    public ClientId getClientId() {
+        return clientId;
+    }
+
+    public LocalDateTime getLoanAt() {
+        return loanAt;
+    }
+
+    public LocalDateTime getReturnAt() {
+        return returnAt;
+    }
+
 }

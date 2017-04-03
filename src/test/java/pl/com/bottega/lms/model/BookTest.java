@@ -52,15 +52,15 @@ public class BookTest {
         assertEquals("changed 1800", book.getYear());
     }
 
-    private BookAssembler given() {
+    public BookAssembler given() {
         return new BookAssembler();
     }
 
-    private BookId anyBookId() {
+    public BookId anyBookId() {
         return new BookId("1");
     }
 
-    private class BookAssembler {
+    public class BookAssembler {
 
         public Book newBook() {
             CreateBookCommand cmd = new CreateBookCommand();
