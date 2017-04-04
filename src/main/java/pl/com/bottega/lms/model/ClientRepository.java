@@ -6,4 +6,5 @@ public interface ClientRepository {
 
     void put(Client client);
 
+    void remove(Client client);
 }

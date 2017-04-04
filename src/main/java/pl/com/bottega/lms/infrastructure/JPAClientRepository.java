@@ -4,6 +4,7 @@ import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
 import pl.com.bottega.lms.model.ClientNotFoundException;
 import pl.com.bottega.lms.model.ClientRepository;
+import pl.com.bottega.lms.model.commands.CreateClientCommand;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
@@ -21,6 +22,11 @@ public class JPAClientRepository implements ClientRepository {
     @Override
     public void put(Client client) {
         entityManager.persist(client);
+    }
+
+    @Override
+    public void remove(Client client) {
+        entityManager.remove(client);
     }
 
     @Override

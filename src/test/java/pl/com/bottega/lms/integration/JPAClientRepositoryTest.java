@@ -10,6 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 import pl.com.bottega.lms.infrastructure.JPAClientRepository;
 import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
+import pl.com.bottega.lms.model.commands.CreateClientCommand;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -26,8 +27,9 @@ public class JPAClientRepositoryTest {
     public void shouldFindClientById() {
         //given - sql
         //when
-        ClientId id = new ClientId(1L);
-        Client client = clientRepository.get(id);
+        CreateClientCommand cmd = new CreateClientCommand();
+        cmd.setClientId(new ClientId(1L));
+        Client client = clientRepository.get(cmd.getClientId());
 
         //then
         assertThat(client).isNotNull();
@@ -37,8 +39,10 @@ public class JPAClientRepositoryTest {
     @Test
     @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldNotFindClientByIdWhenIdNotExists() {
-        ClientId id = new ClientId(100L);
-        Client client = clientRepository.get(id);
+        CreateClientCommand cmd = new CreateClientCommand();
+        ClientId clientId = new ClientId(1111L);
+        cmd.setClientId(clientId);
+        Client client = clientRepository.get(cmd.getClientId());
 
         assertThat(client).isNull();
     }

@@ -7,7 +7,7 @@ import pl.com.bottega.lms.model.commands.UpdateClientCommand;
 
 public interface ClientManagement {
 
-    Client create(CreateClientCommand cmd);
+    ClientId create(CreateClientCommand cmd);
 
     void update(UpdateClientCommand cmd);
 

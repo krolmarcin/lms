@@ -14,7 +14,7 @@ INSERT INTO BOOKS (ID, AUTHOR, TITLE, "YEAR", IS_AVAILABLE)
 VALUES ('555', 'autor5', 'tytul5', 2017, 'true');
 
 INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
-VALUES ('1', 'janek', 'jankowski', '111222333', 'email1@email.com');
+VALUES ('1','janek', 'jankowski', '111222333', 'email1@email.com');
 
 INSERT INTO CLIENTS (ID, FIRST_NAME, LAST_NAME, MOBILE_PHONE, EMAIL)
 VALUES ('2', 'maniek', 'mankowski', '222333444', 'email2@email.com');

@@ -1,11 +1,9 @@
 package pl.com.bottega.lms.infrastructure;
 
 import org.springframework.context.annotation.Bean;
-import pl.com.bottega.lms.application.BookCatalog;
-import pl.com.bottega.lms.application.BookManagement;
-import pl.com.bottega.lms.application.ClientCatalog;
-import pl.com.bottega.lms.application.LoanFlowProcess;
+import pl.com.bottega.lms.application.*;
 import pl.com.bottega.lms.application.impl.StandardBookManagement;
+import pl.com.bottega.lms.application.impl.StandardClientManagement;
 import pl.com.bottega.lms.application.impl.StandardLoanFlowProcess;
 import pl.com.bottega.lms.model.*;
 import pl.com.bottega.lms.model.numbers.BookIdGenerator;
@@ -52,5 +50,10 @@ public class Configuration {
     @Bean
     public BookManagement bookManagement(BookIdGenerator bookIdGenerator, BookRepository bookRepository) {
         return new StandardBookManagement(bookIdGenerator, bookRepository);
+    }
+
+    @Bean
+    public ClientManagement clientManagement(ClientRepository clientRepository) {
+        return new StandardClientManagement(clientRepository);
     }
 }

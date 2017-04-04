@@ -79,7 +79,7 @@ public class ClientTest {
             cmd.setLastName("kowalski");
             cmd.setEmail("email@email.com");
             cmd.setMobilePhone("777888999");
-            return new Client(cmd, anyClientId());
+            return new Client(cmd);
         }
     }
 
