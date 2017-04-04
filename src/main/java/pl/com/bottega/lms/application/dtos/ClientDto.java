@@ -1,4 +1,4 @@
-package pl.com.bottega.lms.application;
+package pl.com.bottega.lms.application.dtos;
 
 import pl.com.bottega.lms.model.Address;
 import pl.com.bottega.lms.model.ClientId;

@@ -8,9 +8,8 @@ import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
 import pl.com.bottega.lms.application.*;
-import pl.com.bottega.lms.infrastructure.JPABookCatalog;
+import pl.com.bottega.lms.application.dtos.ClientDto;
 import pl.com.bottega.lms.infrastructure.JPAClientCatalog;
-import pl.com.bottega.lms.model.Client;
 import pl.com.bottega.lms.model.ClientId;
 import pl.com.bottega.lms.model.ClientNotFoundException;
 

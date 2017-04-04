@@ -20,6 +20,7 @@ public class Loan {
     private ClientId clientId;
     private LocalDateTime loanAt;
     private LocalDateTime returnAt;
+    private boolean active;
 
     Loan() {
     }
@@ -28,10 +29,12 @@ public class Loan {
         this.bookId = bookId;
         this.clientId = clientId;
         this.loanAt = LocalDateTime.now();
+        this.active = true;
     }
 
-    public void returnBook(BookId bookId) {
+    public void returnBook(BookId bookId, ClientId clientId) {
         this.bookId = bookId;
+        this.clientId = clientId;
         this.returnAt = LocalDateTime.now();
     }
 
@@ -55,4 +58,11 @@ public class Loan {
         return returnAt;
     }
 
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
+    public boolean isActive() {
+        return active;
+    }
 }

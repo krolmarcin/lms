@@ -1,4 +1,4 @@
-package pl.com.bottega.lms.application;
+package pl.com.bottega.lms.application.dtos;
 
 import java.util.List;
 

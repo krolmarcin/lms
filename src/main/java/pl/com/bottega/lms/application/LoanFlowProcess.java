@@ -8,6 +8,6 @@ public interface LoanFlowProcess {
 
     void loanBook(BookId bookId, ClientId clientId);
 
-    void returnBook(BookId bookId);
+    void returnBook(BookId bookId, ClientId clientId);
 
 }

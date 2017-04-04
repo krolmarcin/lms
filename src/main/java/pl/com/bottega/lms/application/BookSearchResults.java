@@ -1,5 +1,7 @@
 package pl.com.bottega.lms.application;
 
+import pl.com.bottega.lms.application.dtos.BookDto;
+
 import java.util.List;
 
 public class BookSearchResults {

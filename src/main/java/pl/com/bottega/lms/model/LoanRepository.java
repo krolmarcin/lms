@@ -8,4 +8,6 @@ public interface LoanRepository {
 
     Loan getForBookId(BookId bookId);
 
+    Loan getActiveForBookIdAndClientId(BookId bookId, ClientId clientId);
+
 }

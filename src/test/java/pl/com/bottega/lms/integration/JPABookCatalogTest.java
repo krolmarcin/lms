@@ -7,11 +7,10 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.jdbc.Sql;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.transaction.annotation.Transactional;
-import pl.com.bottega.lms.application.BookDto;
+import pl.com.bottega.lms.application.dtos.BookDto;
 import pl.com.bottega.lms.application.BookQuery;
 import pl.com.bottega.lms.application.BookSearchResults;
 import pl.com.bottega.lms.infrastructure.JPABookCatalog;
-import pl.com.bottega.lms.model.Book;
 import pl.com.bottega.lms.model.BookId;
 
 import static org.assertj.core.api.Assertions.assertThat;

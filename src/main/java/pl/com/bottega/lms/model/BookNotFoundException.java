@@ -10,4 +10,7 @@ public class BookNotFoundException extends RuntimeException {
         super(String.format("Book with ID %s does not exists", bookId.getId()));
     }
 
+    public BookNotFoundException(String format, String bookId, String clientId) {
+        super();
+    }
 }

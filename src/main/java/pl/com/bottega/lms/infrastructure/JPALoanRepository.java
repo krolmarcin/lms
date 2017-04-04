@@ -1,17 +1,17 @@
 package pl.com.bottega.lms.infrastructure;
 
-import pl.com.bottega.lms.model.BookId;
-import pl.com.bottega.lms.model.ClientId;
-import pl.com.bottega.lms.model.Loan;
-import pl.com.bottega.lms.model.LoanRepository;
+import pl.com.bottega.lms.model.*;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
+import javax.persistence.criteria.Predicate;
 import javax.persistence.criteria.Root;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 public class JPALoanRepository implements LoanRepository {
 
@@ -36,7 +36,7 @@ public class JPALoanRepository implements LoanRepository {
     private Loan loanQuery(TypedQuery<Loan> query) {
         List<Loan> loans = query.getResultList();
         if (loans.size() == 0)
-            return null;
+            throw new LoanNotFoundException(String.format("No loans for this query"));
         else
             return loans.get(0);
     }
@@ -50,5 +50,20 @@ public class JPALoanRepository implements LoanRepository {
         TypedQuery<Loan> query = entityManager.createQuery(criteriaQuery);
         return loanQuery(query);
     }
+
+    @Override
+    public Loan getActiveForBookIdAndClientId(BookId bookId, ClientId clientId) {
+        CriteriaBuilder builder = entityManager.getCriteriaBuilder();
+        CriteriaQuery<Loan> criteriaQuery = builder.createQuery(Loan.class);
+        Root<Loan> root = criteriaQuery.from(Loan.class);
+        Set<Predicate> predicates = new HashSet<>();
+        predicates.add(builder.equal(root.get("bookId"), bookId));
+        predicates.add(builder.equal(root.get("clientId"), clientId));
+        predicates.add(builder.equal(root.get("active"), true));
+        criteriaQuery.where(predicates.toArray(new Predicate[]{}));
+        TypedQuery<Loan> query = entityManager.createQuery(criteriaQuery);
+        return loanQuery(query);
+    }
+
 
 }
