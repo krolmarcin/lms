@@ -5,6 +5,7 @@ import pl.com.bottega.lms.model.commands.UpdateBookCommand;
 import pl.com.bottega.lms.model.numbers.BookIdGenerator;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "BOOKS")
@@ -17,9 +18,9 @@ public class Book {
     private String author;
     private boolean isAvailable;
 
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookId")
-    Loan loans;
+    List<Loan> loans;
 
     Book() {
     }

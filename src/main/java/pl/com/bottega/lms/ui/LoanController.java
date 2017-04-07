@@ -15,17 +15,17 @@ public class LoanController {
         this.loanFlowProcess = loanFlowProcess;
     }
 
-    @PostMapping("/loan/{clientId_string}/{bookId_string}")
-    public void loan(@PathVariable String clientId_string, @PathVariable String bookId_string) {
-        ClientId clientId = new ClientId(Long.parseLong(clientId_string));
-        BookId bookId = new BookId(bookId_string);
+    @PostMapping("/loan/{clientIdIn}/{bookIdIn}")
+    public void loan(@PathVariable String clientIdIn, @PathVariable String bookIdIn) {
+        ClientId clientId = new ClientId(Long.parseLong(clientIdIn));
+        BookId bookId = new BookId(bookIdIn);
         loanFlowProcess.loanBook(bookId, clientId);
     }
 
-    @PostMapping("/return/{clientId_string}/{bookId_string}")
-    public void returnBook(@PathVariable String clientId_string, @PathVariable String bookId_string) {
-        BookId bookId = new BookId(bookId_string);
-        ClientId clientId = new ClientId(Long.parseLong(clientId_string));
+    @PostMapping("/return/{clientIdIn}/{bookIdIn}")
+    public void returnBook(@PathVariable String clientIdIn, @PathVariable String bookIdIn) {
+        BookId bookId = new BookId(bookIdIn);
+        ClientId clientId = new ClientId(Long.parseLong(clientIdIn));
         loanFlowProcess.returnBook(bookId, clientId);
     }
 

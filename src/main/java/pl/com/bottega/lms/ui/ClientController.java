@@ -31,9 +31,9 @@ public class ClientController {
         clientManagement.update(cmd);
     }
 
-    @DeleteMapping("/{clientId_string}")
-    public void remove(@PathVariable String clientId_string) {
-        ClientId clientId = new ClientId(Long.parseLong(clientId_string));
+    @DeleteMapping("/{clientIdIn}")
+    public void remove(@PathVariable String clientIdIn) {
+        ClientId clientId = new ClientId(Long.parseLong(clientIdIn));
         clientManagement.remove(clientId);
     }
 
