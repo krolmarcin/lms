@@ -34,9 +34,10 @@ public class LoanFlowProcessTest {
     @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldCreateLoan() {
         BookId bookId = new BookId("1");
+        Book book = bookRepository.get(bookId);
         ClientId clientId = new ClientId(1L);
 
-        loanFlowProcess.loanBook(bookId, clientId);
+        loanFlowProcess.loanBook(book, clientId);
     }
 
     @Test
@@ -44,9 +45,9 @@ public class LoanFlowProcessTest {
     public void shouldNotBeAvailableAfterLoan() {
         BookId bookId = new BookId("1");
         ClientId clientId = new ClientId(1L);
-
-        loanFlowProcess.loanBook(bookId, clientId);
         Book book = bookRepository.get(bookId);
+
+        loanFlowProcess.loanBook(book, clientId);
 
         assertThat(book.isAvailable()).isEqualTo(false);
     }
@@ -55,12 +56,12 @@ public class LoanFlowProcessTest {
     @Sql("/fixtures/clientsAndBooks.sql")
     public void shouldBeAvailableAfterReturn() {
         BookId bookId = new BookId("1");
+        Book book = bookRepository.get(bookId);
         ClientId clientId = new ClientId(1L);
 
-        loanFlowProcess.loanBook(bookId, clientId);
-        Book book = bookRepository.get(bookId);
+        loanFlowProcess.loanBook(book, clientId);
 
-        loanFlowProcess.returnBook(bookId, clientId);
+        loanFlowProcess.returnBook(book, clientId);
         assertThat(book.isAvailable()).isEqualTo(true);
     }
 

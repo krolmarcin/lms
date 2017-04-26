@@ -11,9 +11,9 @@ public class Loan {
     @GeneratedValue
     private Long id;
 
-    @Embedded
-    @AttributeOverride(name = "id", column = @Column(name = "bookId"))
-    private BookId bookId;
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bookId")
+    private Book book;
 
     @Embedded
     @AttributeOverride(name = "id", column = @Column(name = "clientId"))
@@ -25,15 +25,15 @@ public class Loan {
     Loan() {
     }
 
-    public Loan(BookId bookId, ClientId clientId) {
-        this.bookId = bookId;
+    public Loan(Book book, ClientId clientId) {
+        this.book = book;
         this.clientId = clientId;
         this.loanAt = LocalDateTime.now();
         this.active = true;
     }
 
-    public void returnBook(BookId bookId, ClientId clientId) {
-        this.bookId = bookId;
+    public void returnBook(Book book, ClientId clientId) {
+        this.book = book;
         this.clientId = clientId;
         this.returnAt = LocalDateTime.now();
     }
@@ -42,8 +42,8 @@ public class Loan {
         return id;
     }
 
-    public BookId getBookId() {
-        return bookId;
+    public Book getBook() {
+        return book;
     }
 
     public ClientId getClientId() {

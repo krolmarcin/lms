@@ -19,25 +19,23 @@ public class StandardLoanFlowProcess implements LoanFlowProcess {
     }
 
     @Override
-    public void loanBook(BookId bookId, ClientId clientId) {
-        Book book = bookRepository.get(bookId);
+    public void loanBook(Book book, ClientId clientId) {
         if (!book.isAvailable())
-            throw new BookNotFoundException(String.format("Book %s has already lent for Client %s", bookId.getId(), clientId.getId().toString()));
+            throw new BookNotFoundException(String.format("Book %s has already lent for Client %s", book.getId(), clientId.getId().toString()));
         else {
             book.setAvailable(false);
-            Loan loan = new Loan(bookId, clientId);
+            Loan loan = new Loan(book, clientId);
             loan.setActive(true);
             loanRepository.put(loan);
         }
     }
 
     @Override
-    public void returnBook(BookId bookId, ClientId clientId) {
-        Book book = bookRepository.get(bookId);
+    public void returnBook(Book book, ClientId clientId) {
         book.setAvailable(true);
-        Loan loan = loanRepository.getActiveForBookIdAndClientId(bookId, clientId);
+        Loan loan = loanRepository.getActiveForBookIdAndClientId(book.getId(), clientId);
         loan.setActive(false);
-        loan.returnBook(bookId, clientId);
+        loan.returnBook(book, clientId);
     }
 
 }

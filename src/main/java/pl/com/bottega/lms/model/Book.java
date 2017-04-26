@@ -6,6 +6,7 @@ import pl.com.bottega.lms.model.numbers.BookIdGenerator;
 
 import javax.persistence.*;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "BOOKS")
@@ -20,7 +21,7 @@ public class Book {
 
     @OneToMany(cascade = CascadeType.ALL)
     @JoinColumn(name = "bookId")
-    List<Loan> loans;
+    private Set<Loan> loans;
 
     Book() {
     }
